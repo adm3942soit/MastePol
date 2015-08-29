@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="ua.com.masterpol.model.CourseUSD"
+           table="courses">
+
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+       <property name="buyingRate" type="java.lang.Double">
+           <column name="BUYING_RATE" not-null="true"></column>
+       </property>
+        <property name="sellingRate" type="java.lang.Double">
+            <column name="SELLING_RATE" not-null="true"></column>
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CREATED_DATE" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       <tx:annotation-driven transaction-manager="transactionManager" />
+
+       <bean id="transactionManager"
+             class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+              <property name="sessionFactory" ref="sessionFactory" />
+       </bean>
+       <!-- Hibernate session factory -->
+       <bean id="sessionFactory"
+             class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+
+              <property name="dataSource">
+                     <ref bean="dataSource"/>
+              </property>
+              <!--<property name="t">
+                  <value>org.hibernate.transaction.JDBCTransactionFactory</value>
+              </property>-->
+              <property name="hibernateProperties">
+                     <props>
+                            <prop key="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>
+                            <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                            <prop key="hibernate.show_sql">true</prop>
+                            <prop key="hbm2ddl.auto">update</prop>
+
+                     </props>
+              </property>
+
+              <!--<property name="mappingResources">
+              <list>
+                    <value>com/customer/hibernate/Customer.hbm.xml</value>
+              </list>
+               </property>-->
+              <property name="configLocation">
+                     <value>classpath:hibernate.cfg.xml</value>
+              </property>
+              <property name="configurationClass">
+                     <value>org.hibernate.cfg.AnnotationConfiguration</value>
+              </property>
+
+       </bean>
+
+       <import resource="dataSource.xml"></import>
+</beans>

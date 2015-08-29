@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="ua.com.masterpol.model.Product"
+           table="products">
+
+        <id name="productId" type="int" >
+            <column name="PRODUCT_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String" unique="true">
+            <column name="NAME" length="45" not-null="true" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" length="60" not-null="false" />
+        </property>
+
+        <property name="priceUAH" type="java.lang.Double">
+            <column name="PRICE_UAH" not-null="true"/>
+        </property>
+        <property name="priceUSD" type="java.lang.Double">
+            <column name="PRICE_USD" not-null="true"/>
+        </property>
+        <property name="forCount" type="java.lang.Integer">
+            <column name="FOR_COUNT" not-null="true"/>
+        </property>
+        <property name="allCount" type="java.lang.Double">
+            <column name="ALL_COUNT" not-null="true"/>
+        </property>
+        <property name="shortName" type="java.lang.String">
+            <column name="SHORT_NAME" not-null="true"/>
+        </property>
+        <property name="nameImage" type="java.lang.String">
+            <column name="NAME_IMAGE" not-null="false"/>
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CREATED_DATE" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

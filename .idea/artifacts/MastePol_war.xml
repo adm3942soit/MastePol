@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="MastePol:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="MasterPol.war">
+      <element id="artifact" artifact-name="MastePol:war exploded" />
+    </root>
+  </artifact>
+</component>

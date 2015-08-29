@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0">
+   <!-- <application>
+        <el-resolver>
+            org.springframework.web.jsf.el.SpringBeanFacesELResolver
+        </el-resolver>
+        <variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+    </application>
+-->
+    <managed-bean>
+        <managed-bean-name>product</managed-bean-name>
+        <managed-bean-class>ua.com.masterpol.beans.ProductBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>productBo</property-name>
+            <value>#{productBo}</value>
+        </managed-property>
+        <!--<managed-property>
+            <property-name>courseUSD</property-name>
+            <value>#{courseUSD}</value>
+        </managed-property>-->
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>courseUSD</managed-bean-name>
+        <managed-bean-class>ua.com.masterpol.beans.CourseUSDBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>courseUSDBo</property-name>
+            <value>#{courseUSDBo}</value>
+        </managed-property>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>default</from-outcome>
+            <to-view-id>../default.xhtml</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+</faces-config>
